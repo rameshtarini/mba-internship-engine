@@ -1,0 +1,22 @@
+[project]
+name = "mba-internship-engine"
+version = "0.1.0"
+description = "Self-updating MBA Summer 2027 internship tracker for public employer career feeds."
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.25",
+    "python-dateutil>=2.8",
+    "PyYAML>=6.0",
+    "pytz>=2020.1"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.0",
+    "python-dotenv>=1.0"
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

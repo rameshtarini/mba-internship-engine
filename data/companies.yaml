@@ -1,0 +1,40 @@
+- name: Duolingo
+  tier: Tier 1
+  boards:
+    - platform: greenhouse
+      slug: duolingo
+  careers_url: https://careers.duolingo.com
+  notes: "Seeded tier 1 company."
+  typical_open: August
+- name: Spotify
+  tier: Tier 1
+  boards:
+    - platform: greenhouse
+      slug: spotify
+  careers_url: https://www.spotifyjobs.com
+  notes: "Seeded tier 1 company."
+  typical_open: August
+- name: Figma
+  tier: Tier 1
+  boards:
+    - platform: greenhouse
+      slug: figma
+  careers_url: https://www.figma.com/careers
+  notes: "Seeded tier 1 company."
+  typical_open: August
+- name: Notion
+  tier: Tier 1
+  boards:
+    - platform: greenhouse
+      slug: notion
+  careers_url: https://www.notion.so/careers
+  notes: "Seeded tier 1 company."
+  typical_open: August
+- name: Coursera
+  tier: Tier 1
+  boards:
+    - platform: greenhouse
+      slug: coursera
+  careers_url: https://about.coursera.org/careers
+  notes: "Seeded tier 1 company."
+  typical_open: August
