@@ -8,6 +8,7 @@ venv/
 *.sqlite3
 data/engine.db
 .bin/
+*.egg-info
 .idea/
 .vscode/
 .DS_Store
