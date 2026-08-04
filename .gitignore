@@ -7,6 +7,7 @@ venv/
 .env.*
 *.sqlite3
 data/engine.db
+.bin/
 .idea/
 .vscode/
 .DS_Store
