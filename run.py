@@ -6,6 +6,10 @@ from pathlib import Path
 root = Path(__file__).resolve().parent
 sys.path.insert(0, str(root / "src"))
 
+from engine.render.csv_out import write_csv
+from engine.render.dashboard import write_dashboard
+from engine.render.feed import write_feed
+from engine.render.json_api import write_json
 from engine.runner import run_engine
 
 
@@ -27,6 +31,16 @@ def main() -> int:
 
     postings, stats = asyncio.run(run_engine(companies_path))
     print(f"Fetched {stats.roles_found} postings from {stats.boards_succeeded}/{stats.boards_attempted} boards")
+
+    docs_dir = root / "docs"
+    docs_dir.mkdir(exist_ok=True)
+    (docs_dir / "api").mkdir(exist_ok=True)
+
+    write_json(docs_dir / "api" / "jobs.json", postings)
+    write_csv(root / "data" / "postings.csv", postings)
+    write_feed(docs_dir / "feed.xml", postings)
+    write_dashboard(docs_dir / "index.html", postings)
+
     for posting in postings[: args.limit]:
         print("---")
         print(f"Company: {posting.company}")

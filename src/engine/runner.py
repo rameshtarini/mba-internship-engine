@@ -4,7 +4,12 @@ import asyncio
 from pathlib import Path
 from typing import Any
 
+from .adapters.ashby import fetch_ashby_postings
 from .adapters.greenhouse import fetch_greenhouse_postings
+from .adapters.lever import fetch_lever_postings
+from .adapters.smartrecruiters import fetch_smartrecruiters_postings
+from .adapters.workable import fetch_workable_postings
+from .adapters.workday import fetch_workday_postings
 from .classify import classify_posting
 from .fetch import Fetcher
 from .models import Company, Posting, RunStats
@@ -12,6 +17,11 @@ from .registry import load_companies
 
 ADAPTERS: dict[str, Any] = {
     "greenhouse": fetch_greenhouse_postings,
+    "lever": fetch_lever_postings,
+    "ashby": fetch_ashby_postings,
+    "workday": fetch_workday_postings,
+    "smartrecruiters": fetch_smartrecruiters_postings,
+    "workable": fetch_workable_postings,
 }
 
 

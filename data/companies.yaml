@@ -38,3 +38,83 @@
   careers_url: https://about.coursera.org/careers
   notes: "Seeded tier 1 company."
   typical_open: August
+- name: Stripe
+  tier: Tier 2
+  boards:
+    - platform: greenhouse
+      slug: stripe
+  careers_url: https://stripe.com/jobs
+  notes: "Seeded tier 2 company."
+  typical_open: September
+- name: Brex
+  tier: Tier 2
+  boards:
+    - platform: greenhouse
+      slug: brex
+  careers_url: https://www.brex.com/careers
+  notes: "Seeded tier 2 company."
+  typical_open: September
+- name: Ramp
+  tier: Tier 2
+  boards:
+    - platform: greenhouse
+      slug: ramp
+  careers_url: https://ramp.com/careers
+  notes: "Seeded tier 2 company."
+  typical_open: September
+- name: Atlassian
+  tier: Tier 2
+  boards:
+    - platform: greenhouse
+      slug: atlassian
+  careers_url: https://www.atlassian.com/company/careers
+  notes: "Seeded tier 2 company."
+  typical_open: September
+- name: Datadog
+  tier: Tier 2
+  boards:
+    - platform: greenhouse
+      slug: datadog
+  careers_url: https://careers.datadoghq.com
+  notes: "Seeded tier 2 company."
+  typical_open: September
+- name: MongoDB
+  tier: Tier 2
+  boards:
+    - platform: greenhouse
+      slug: mongodb
+  careers_url: https://www.mongodb.com/careers
+  notes: "Seeded tier 2 company."
+  typical_open: September
+- name: Microsoft
+  tier: Safety
+  boards:
+    - platform: greenhouse
+      slug: microsoft
+  careers_url: https://careers.microsoft.com
+  notes: "Seeded safety company."
+  typical_open: August
+- name: Google
+  tier: Safety
+  boards:
+    - platform: greenhouse
+      slug: google
+  careers_url: https://careers.google.com
+  notes: "Seeded safety company."
+  typical_open: August
+- name: Meta
+  tier: Safety
+  boards:
+    - platform: greenhouse
+      slug: meta
+  careers_url: https://www.metacareers.com
+  notes: "Seeded safety company."
+  typical_open: August
+- name: Amazon
+  tier: Safety
+  boards:
+    - platform: greenhouse
+      slug: amazon
+  careers_url: https://www.amazon.jobs
+  notes: "Seeded safety company."
+  typical_open: August
