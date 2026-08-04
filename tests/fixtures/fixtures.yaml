@@ -1,0 +1,112 @@
+- name: mba_required_mba_in_title
+  file: mba_required_mba_in_title.txt
+  title: MBA Product Manager Intern
+  expected_cycle: summer_2027
+  expected_mba_preference: mba_required
+  expected_mba_evidence: mba
+  expected_track: product
+- name: mba_required_summer_associate
+  file: mba_required_summer_associate.txt
+  title: Summer Associate, Product Strategy
+  expected_cycle: summer_2027
+  expected_mba_preference: mba_required
+  expected_mba_evidence: summer associate
+  expected_track: product_strategy
+- name: mba_required_grad_business_student
+  file: mba_required_grad_business_student.txt
+  title: Product Management Intern
+  expected_cycle: summer_2027
+  expected_mba_preference: mba_required
+  expected_mba_evidence: graduate business student
+  expected_track: product
+- name: mba_required_class_of_2028
+  file: mba_required_class_of_2028.txt
+  title: MBA Intern
+  expected_cycle: summer_2027
+  expected_mba_preference: mba_required
+  expected_mba_evidence: class of 2028
+  expected_track: product_strategy
+- name: mba_preferred_mba_or_advanced_degree
+  file: mba_preferred_mba_or_advanced_degree.txt
+  title: Product Marketing Intern
+  expected_cycle: unstated
+  expected_mba_preference: mba_preferred
+  expected_mba_evidence: MBA or advanced degree preferred
+  expected_track: product_marketing
+- name: mba_preferred_mba_preferred
+  file: mba_preferred_mba_preferred.txt
+  title: Strategy Intern
+  expected_cycle: unstated
+  expected_mba_preference: mba_preferred
+  expected_mba_evidence: mba preferred
+  expected_track: product_strategy
+- name: mba_unknown_undergrad_excluded
+  file: mba_unknown_undergrad_excluded.txt
+  title: APM Intern
+  expected_cycle: unstated
+  expected_mba_preference: mba_unknown
+  expected_mba_evidence: null
+  expected_track: product
+- name: mba_unknown_bs_ms_cs
+  file: mba_unknown_bs_ms_cs.txt
+  title: APM Candidate
+  expected_cycle: unstated
+  expected_mba_preference: mba_unknown
+  expected_mba_evidence: null
+  expected_track: product
+- name: mba_unknown_new_grad_apm
+  file: mba_unknown_new_grad_apm.txt
+  title: Associate Product Manager
+  expected_cycle: unstated
+  expected_mba_preference: mba_unknown
+  expected_mba_evidence: null
+  expected_track: product
+- name: track_ai_product
+  file: track_ai_product.txt
+  title: AI Product Intern
+  expected_cycle: unstated
+  expected_mba_preference: mba_unknown
+  expected_mba_evidence: null
+  expected_track: ai_product
+- name: track_product_marketing
+  file: track_product_marketing.txt
+  title: Product Marketing Manager
+  expected_cycle: unstated
+  expected_mba_preference: mba_unknown
+  expected_mba_evidence: null
+  expected_track: product_marketing
+- name: track_product_strategy
+  file: track_product_strategy.txt
+  title: Product Strategy Intern
+  expected_cycle: unstated
+  expected_mba_preference: mba_required
+  expected_mba_evidence: summer associate
+  expected_track: product_strategy
+- name: track_other_mba_tech
+  file: track_other_mba_tech.txt
+  title: Business Operations Intern
+  expected_cycle: unstated
+  expected_mba_preference: mba_required
+  expected_mba_evidence: mba
+  expected_track: product_strategy
+- name: cycle_unstated
+  file: cycle_unstated.txt
+  title: MBA Analyst Intern
+  expected_cycle: unstated
+  expected_mba_preference: mba_required
+  expected_mba_evidence: mba
+  expected_track: product
+- name: cycle_summer_2027
+  file: cycle_summer_2027.txt
+  title: Product Intern
+  expected_cycle: summer_2027
+  expected_mba_preference: mba_unknown
+  expected_mba_evidence: null
+  expected_track: product
+- name: cycle_graduating_2028
+  file: cycle_graduating_2028.txt
+  title: Operations Intern
+  expected_cycle: summer_2027
+  expected_mba_preference: mba_required
+  expected_mba_evidence: class of 2028
+  expected_track: other_mba_tech
