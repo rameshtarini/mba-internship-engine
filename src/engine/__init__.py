@@ -1,15 +1,15 @@
 """MBA internship engine package."""
 
-from .models import Posting, Company, RunStats
-from .registry import load_companies
-from .fetch import Fetcher
 from .classify import classify_posting
+from .fetch import Fetcher
+from .models import Company, Posting, RunStats
+from .registry import load_companies
 
 __all__ = [
-    "Posting",
     "Company",
-    "RunStats",
-    "load_companies",
     "Fetcher",
+    "Posting",
+    "RunStats",
     "classify_posting",
+    "load_companies",
 ]

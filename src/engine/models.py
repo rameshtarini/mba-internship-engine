@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Optional
 
 
 @dataclass
@@ -11,8 +10,8 @@ class Company:
     tier: str
     boards: list[dict[str, str]]
     careers_url: str
-    notes: Optional[str] = None
-    typical_open: Optional[str] = None
+    notes: str | None = None
+    typical_open: str | None = None
 
 
 @dataclass
@@ -22,20 +21,20 @@ class Posting:
     role_title: str
     raw_description: str
     apply_url: str
-    location: Optional[str] = None
-    remote_flag: Optional[bool] = None
-    posted_date: Optional[datetime] = None
-    first_seen_at: Optional[datetime] = None
-    last_seen_at: Optional[datetime] = None
+    location: str | None = None
+    remote_flag: bool | None = None
+    posted_date: datetime | None = None
+    first_seen_at: datetime | None = None
+    last_seen_at: datetime | None = None
     cycle: str = "unstated"
     track: str = "other_mba_tech"
-    mba_evidence: Optional[str] = None
-    mba_preference: Optional[str] = None
+    mba_evidence: str | None = None
+    mba_preference: str | None = None
     sponsorship_flag: str = "unknown"
-    deadline: Optional[str] = None
-    tier: Optional[str] = None
+    deadline: str | None = None
+    tier: str | None = None
     status: str = "open"
-    closed_reason: Optional[str] = None
+    closed_reason: str | None = None
     my_status: str = "none"
 
 

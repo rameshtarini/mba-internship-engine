@@ -10,7 +10,6 @@ from .fetch import Fetcher
 from .models import Company, Posting, RunStats
 from .registry import load_companies
 
-
 ADAPTERS: dict[str, Any] = {
     "greenhouse": fetch_greenhouse_postings,
 }

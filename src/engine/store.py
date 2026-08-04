@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import sqlite3
-
-from .models import Posting
+from pathlib import Path
 
 
 class Store:

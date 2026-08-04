@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import asyncio
-import httpx
 from typing import Any
+
+import httpx
 
 
 class Fetcher:

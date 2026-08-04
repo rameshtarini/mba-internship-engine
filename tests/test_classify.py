@@ -1,10 +1,16 @@
 from __future__ import annotations
 
 import pathlib
-import yaml
-import pytest
 
-from engine.classify import classify_posting, classify_cycle, classify_mba, classify_track
+import pytest
+import yaml
+
+from engine.classify import (
+    classify_cycle,
+    classify_mba,
+    classify_posting,
+    classify_track,
+)
 from engine.models import Posting
 
 FIXTURES_DIR = pathlib.Path(__file__).resolve().parent / "fixtures"
