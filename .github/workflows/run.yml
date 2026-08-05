@@ -7,17 +7,34 @@ on:
 
 jobs:
   run:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: '3.11'
+
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install .
+        run: pip install httpx pyyaml python-dateutil pytz
+
       - name: Run engine
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python run.py
+
+      - name: Commit changes
         run: |
-          python run.py
+          git config user.name "mba-internship-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs/ data/postings.csv README.md data/engine.db
+          git diff --cached --quiet && echo "No changes to commit." || \
+            git commit -m "chore: engine run $(date -u '+%Y-%m-%d %H:%M UTC')" && git push

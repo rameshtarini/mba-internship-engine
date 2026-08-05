@@ -1,120 +1,932 @@
+# ── Tier 1 ────────────────────────────────────────────────────────────────────
 - name: Duolingo
   tier: Tier 1
   boards:
     - platform: greenhouse
       slug: duolingo
   careers_url: https://careers.duolingo.com
-  notes: "Seeded tier 1 company."
   typical_open: August
+
 - name: Spotify
   tier: Tier 1
   boards:
     - platform: greenhouse
       slug: spotify
   careers_url: https://www.spotifyjobs.com
-  notes: "Seeded tier 1 company."
   typical_open: August
+
 - name: Figma
   tier: Tier 1
   boards:
     - platform: greenhouse
       slug: figma
   careers_url: https://www.figma.com/careers
-  notes: "Seeded tier 1 company."
   typical_open: August
+
 - name: Notion
   tier: Tier 1
   boards:
     - platform: greenhouse
       slug: notion
   careers_url: https://www.notion.so/careers
-  notes: "Seeded tier 1 company."
   typical_open: August
+
 - name: Coursera
   tier: Tier 1
   boards:
     - platform: greenhouse
       slug: coursera
   careers_url: https://about.coursera.org/careers
-  notes: "Seeded tier 1 company."
   typical_open: August
+
+# ── Tier 2 ────────────────────────────────────────────────────────────────────
 - name: Stripe
   tier: Tier 2
   boards:
     - platform: greenhouse
       slug: stripe
   careers_url: https://stripe.com/jobs
-  notes: "Seeded tier 2 company."
   typical_open: September
+
 - name: Brex
   tier: Tier 2
   boards:
     - platform: greenhouse
       slug: brex
   careers_url: https://www.brex.com/careers
-  notes: "Seeded tier 2 company."
   typical_open: September
+
 - name: Ramp
   tier: Tier 2
   boards:
     - platform: greenhouse
       slug: ramp
   careers_url: https://ramp.com/careers
-  notes: "Seeded tier 2 company."
   typical_open: September
+
 - name: Atlassian
   tier: Tier 2
   boards:
     - platform: greenhouse
       slug: atlassian
   careers_url: https://www.atlassian.com/company/careers
-  notes: "Seeded tier 2 company."
   typical_open: September
+
 - name: Datadog
   tier: Tier 2
   boards:
     - platform: greenhouse
       slug: datadog
   careers_url: https://careers.datadoghq.com
-  notes: "Seeded tier 2 company."
   typical_open: September
+
 - name: MongoDB
   tier: Tier 2
   boards:
     - platform: greenhouse
       slug: mongodb
   careers_url: https://www.mongodb.com/careers
-  notes: "Seeded tier 2 company."
   typical_open: September
+
+- name: Sierra
+  tier: Tier 2
+  boards:
+    - platform: ashby
+      slug: sierra
+  careers_url: https://sierra.ai/careers
+  notes: "Slug unverified — probe ashby endpoint."
+  typical_open: September
+
+# ── Safety ────────────────────────────────────────────────────────────────────
 - name: Microsoft
   tier: Safety
   boards:
     - platform: greenhouse
       slug: microsoft
   careers_url: https://careers.microsoft.com
-  notes: "Seeded safety company."
+  notes: "Microsoft primarily uses careers.microsoft.com (custom ATS). Greenhouse slug may not resolve — verify and disable if 403."
   typical_open: August
+
 - name: Google
   tier: Safety
   boards:
     - platform: greenhouse
       slug: google
   careers_url: https://careers.google.com
-  notes: "Seeded safety company."
+  notes: "Google primarily uses careers.google.com. Greenhouse presence limited — verify slug."
   typical_open: August
+
 - name: Meta
   tier: Safety
   boards:
     - platform: greenhouse
       slug: meta
   careers_url: https://www.metacareers.com
-  notes: "Seeded safety company."
+  notes: "Meta uses a mix of Greenhouse and custom ATS. Verify slug; RPM is the MBA-level PM program."
   typical_open: August
+
 - name: Amazon
   tier: Safety
   boards:
     - platform: greenhouse
       slug: amazon
   careers_url: https://www.amazon.jobs
-  notes: "Seeded safety company."
+  notes: "Amazon primarily uses amazon.jobs (custom ATS). Greenhouse slug likely won't resolve — verify."
   typical_open: August
+
+# ── Broad MBA PM Recruiters ───────────────────────────────────────────────────
+- name: Apple
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: apple
+  careers_url: https://jobs.apple.com
+  notes: "Apple uses jobs.apple.com (custom ATS). Greenhouse slug unverified — may need manual tracking."
+  typical_open: September
+
+- name: Adobe
+  tier: Broad
+  boards:
+    - platform: workday
+      slug: adobe
+  careers_url: https://www.adobe.com/careers.html
+  notes: "Adobe on Workday; slug format unverified."
+  typical_open: September
+
+- name: Salesforce
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: salesforce
+  careers_url: https://careers.salesforce.com
+  typical_open: September
+
+- name: Intuit
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: intuit
+  careers_url: https://careers.intuit.com
+  typical_open: September
+
+- name: LinkedIn
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: linkedin
+  careers_url: https://careers.linkedin.com
+  notes: "LinkedIn (Microsoft subsidiary) may use a custom ATS. Slug unverified."
+  typical_open: September
+
+- name: Uber
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: uber
+  careers_url: https://www.uber.com/us/en/careers
+  typical_open: September
+
+- name: Lyft
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: lyft
+  careers_url: https://www.lyft.com/careers
+  typical_open: September
+
+- name: DoorDash
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: doordash
+  careers_url: https://careers.doordash.com
+  typical_open: September
+
+- name: Instacart
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: instacart
+  careers_url: https://instacart.careers
+  typical_open: September
+
+- name: Airbnb
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: airbnb
+  careers_url: https://careers.airbnb.com
+  typical_open: September
+
+- name: Pinterest
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: pinterest
+  careers_url: https://www.pinterestcareers.com
+  typical_open: September
+
+- name: Snap
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: snap
+  careers_url: https://careers.snap.com
+  typical_open: September
+
+- name: Reddit
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: reddit
+  careers_url: https://www.redditinc.com/careers
+  typical_open: September
+
+- name: Discord
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: discord
+  careers_url: https://discord.com/careers
+  typical_open: September
+
+- name: Roblox
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: roblox
+  careers_url: https://careers.roblox.com
+  typical_open: September
+
+- name: Robinhood
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: robinhood
+  careers_url: https://careers.robinhood.com
+  typical_open: September
+
+- name: Coinbase
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: coinbase
+  careers_url: https://www.coinbase.com/careers
+  typical_open: September
+
+- name: Block
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: block-inc
+  careers_url: https://block.xyz/careers
+  notes: "Formerly Square. Slug may be 'block-inc' or 'square' — verify."
+  typical_open: September
+
+- name: PayPal
+  tier: Broad
+  boards:
+    - platform: workday
+      slug: paypal
+  careers_url: https://careers.pypl.com
+  notes: "PayPal on Workday; slug format unverified."
+  typical_open: September
+
+- name: eBay
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: ebay
+  careers_url: https://careers.ebay.com
+  typical_open: September
+
+- name: Zillow
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: zillow
+  careers_url: https://www.zillow.com/careers
+  typical_open: September
+
+- name: Expedia
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: expedia
+  careers_url: https://careers.expediagroup.com
+  typical_open: September
+
+- name: Booking.com
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: bookingcom
+  careers_url: https://careers.booking.com
+  notes: "Slug may be 'bookingcom' or 'booking-dot-com' — verify."
+  typical_open: September
+
+- name: Yelp
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: yelp
+  careers_url: https://www.yelp.com/careers
+  typical_open: September
+
+- name: Nextdoor
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: nextdoor
+  careers_url: https://about.nextdoor.com/careers
+  typical_open: September
+
+- name: Twilio
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: twilio
+  careers_url: https://www.twilio.com/en-us/company/jobs
+  typical_open: September
+
+- name: Zoom
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: zoom
+  careers_url: https://careers.zoom.us
+  typical_open: September
+
+- name: ServiceNow
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: servicenow
+  careers_url: https://careers.servicenow.com
+  typical_open: September
+
+- name: Workday
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: workday
+  careers_url: https://www.workday.com/en-us/company/careers.html
+  notes: "Workday uses its own ATS internally; Greenhouse slug unverified."
+  typical_open: September
+
+- name: Dropbox
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: dropbox
+  careers_url: https://jobs.dropbox.com
+  typical_open: September
+
+- name: Asana
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: asana
+  careers_url: https://asana.com/jobs
+  typical_open: September
+
+- name: Databricks
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: databricks
+  careers_url: https://www.databricks.com/company/careers
+  typical_open: September
+
+- name: Snowflake
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: snowflake-computing
+  careers_url: https://careers.snowflake.com
+  typical_open: September
+
+- name: Nvidia
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: nvidia
+  careers_url: https://www.nvidia.com/en-us/about-nvidia/careers
+  notes: "Nvidia may use Workday for most roles; Greenhouse slug unverified."
+  typical_open: September
+
+- name: Anthropic
+  tier: Broad
+  boards:
+    - platform: ashby
+      slug: anthropic
+  careers_url: https://www.anthropic.com/careers
+  typical_open: September
+
+- name: OpenAI
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: openai
+  careers_url: https://openai.com/careers
+  typical_open: September
+
+- name: Scale AI
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: scaleai
+  careers_url: https://scale.com/careers
+  notes: "Slug may be 'scaleai' or 'scale-ai' — verify."
+  typical_open: September
+
+- name: Rippling
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: rippling
+  careers_url: https://www.rippling.com/careers
+  typical_open: September
+
+- name: Gusto
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: gusto
+  careers_url: https://gusto.com/about/careers
+  typical_open: September
+
+- name: Plaid
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: plaid
+  careers_url: https://plaid.com/careers
+  typical_open: September
+
+- name: Affirm
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: affirm
+  careers_url: https://www.affirm.com/careers
+  typical_open: September
+
+- name: Chime
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: chime
+  careers_url: https://careers.chime.com
+  typical_open: September
+
+- name: Samsara
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: samsara
+  careers_url: https://www.samsara.com/company/jobs
+  typical_open: September
+
+- name: Rubrik
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: rubrik
+  careers_url: https://www.rubrik.com/company/careers
+  typical_open: September
+
+- name: Okta
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: okta
+  careers_url: https://www.okta.com/company/careers
+  typical_open: September
+
+- name: HubSpot
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: hubspot
+  careers_url: https://www.hubspot.com/careers
+  typical_open: September
+
+- name: Klaviyo
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: klaviyo
+  careers_url: https://www.klaviyo.com/careers
+  typical_open: September
+
+- name: Toast
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: toasttab
+  careers_url: https://careers.toasttab.com
+  notes: "Slug may be 'toasttab' or 'toast' — verify."
+  typical_open: September
+
+- name: Grammarly
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: grammarly
+  careers_url: https://www.grammarly.com/jobs
+  typical_open: September
+
+- name: Miro
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: mirohq
+  careers_url: https://miro.com/careers
+  notes: "Slug may be 'mirohq' — verify."
+  typical_open: September
+
+- name: Canva
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: canva
+  careers_url: https://www.canva.com/careers
+  typical_open: September
+
+- name: Wayfair
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: wayfair
+  careers_url: https://www.wayfair.com/careers
+  typical_open: September
+
+- name: Chewy
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: chewy
+  careers_url: https://careers.chewy.com
+  typical_open: September
+
+- name: Peloton
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: peloton
+  careers_url: https://www.onepeloton.com/careers
+  typical_open: September
+
+- name: Netflix
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: netflix
+  careers_url: https://jobs.netflix.com
+  typical_open: September
+
+- name: Disney Streaming
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: disney-streaming-services
+  careers_url: https://jobs.disneycareers.com
+  notes: "Slug unverified — may be 'disney-streaming-services' or via Workday."
+  typical_open: September
+
+- name: Warner Bros. Discovery
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: warnerbros
+  careers_url: https://careers.wbd.com
+  notes: "Slug unverified — may be on Workday."
+  typical_open: September
+
+- name: Sonos
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: sonos
+  careers_url: https://www.sonos.com/en-us/careers
+  typical_open: October
+
+- name: Waymo
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: waymo
+  careers_url: https://waymo.com/joinus
+  typical_open: September
+
+- name: Cruise
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: cruise
+  careers_url: https://getcruise.com/careers
+  typical_open: September
+
+- name: Rivian
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: rivian
+  careers_url: https://rivian.com/careers
+  typical_open: September
+
+- name: Tesla
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: tesla-motors
+  careers_url: https://www.tesla.com/careers
+  notes: "Tesla uses tesla.com/careers (custom + Greenhouse). Slug may be 'tesla-motors'."
+  typical_open: September
+
+- name: Flexport
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: flexport
+  careers_url: https://www.flexport.com/careers
+  typical_open: September
+
+- name: Shopify
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: shopify
+  careers_url: https://www.shopify.com/careers
+  typical_open: September
+
+- name: Squarespace
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: squarespace
+  careers_url: https://www.squarespace.com/about/careers
+  typical_open: September
+
+- name: Wix
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: wix
+  careers_url: https://www.wix.com/jobs/locations/tel-aviv
+  notes: "Wix is Israel-headquartered; US roles exist but filter carefully by location."
+  typical_open: October
+
+- name: Zapier
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: zapier
+  careers_url: https://zapier.com/jobs
+  typical_open: September
+
+- name: Airtable
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: airtable
+  careers_url: https://airtable.com/careers
+  typical_open: September
+
+- name: Amplitude
+  tier: Broad
+  boards:
+    - platform: lever
+      slug: amplitude
+  careers_url: https://amplitude.com/careers
+  typical_open: October
+
+- name: Segment
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: twilio-segment
+  careers_url: https://www.twilio.com/en-us/company/jobs
+  notes: "Segment is now Twilio Segment; may share board with Twilio."
+  typical_open: October
+
+- name: Sentry
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: sentry
+  careers_url: https://sentry.io/careers
+  typical_open: October
+
+- name: Vercel
+  tier: Broad
+  boards:
+    - platform: ashby
+      slug: vercel
+  careers_url: https://vercel.com/careers
+  typical_open: October
+
+- name: Retool
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: retool
+  careers_url: https://retool.com/careers
+  typical_open: October
+
+- name: Navan
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: navan
+  careers_url: https://navan.com/careers
+  notes: "Formerly TripActions. Slug may be 'navan' or 'tripactions'."
+  typical_open: September
+
+- name: Wealthfront
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: wealthfront
+  careers_url: https://www.wealthfront.com/careers
+  typical_open: October
+
+- name: Betterment
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: betterment
+  careers_url: https://www.betterment.com/careers
+  typical_open: October
+
+- name: SoFi
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: sofi
+  careers_url: https://www.sofi.com/careers
+  typical_open: September
+
+- name: Marqeta
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: marqeta
+  careers_url: https://www.marqeta.com/company/careers
+  typical_open: October
+
+- name: Bill.com
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: bill-com
+  careers_url: https://www.bill.com/about/careers
+  notes: "Slug may be 'bill-com' or 'billdotcom' — verify."
+  typical_open: October
+
+- name: DocuSign
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: docusign
+  careers_url: https://careers.docusign.com
+  typical_open: September
+
+- name: Box
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: box
+  careers_url: https://www.box.com/en-us/about-us/careers
+  typical_open: October
+
+- name: Smartsheet
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: smartsheet
+  careers_url: https://www.smartsheet.com/careers
+  typical_open: October
+
+- name: Gong
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: gong
+  careers_url: https://www.gong.io/careers
+  notes: "Slug may be 'gong' or 'gongio' — verify."
+  typical_open: October
+
+- name: Outreach
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: outreach
+  careers_url: https://www.outreach.io/company/careers
+  typical_open: October
+
+- name: ZoomInfo
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: zoominfo
+  careers_url: https://www.zoominfo.com/about/careers
+  typical_open: October
+
+- name: Braze
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: braze
+  careers_url: https://www.braze.com/company/careers
+  typical_open: September
+
+- name: Iterable
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: iterable
+  careers_url: https://iterable.com/careers
+  typical_open: October
+
+- name: Attentive
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: attentive
+  careers_url: https://www.attentive.com/careers
+  notes: "Slug may be 'attentive' or 'attentive-mobile' — verify."
+  typical_open: October
+
+- name: Whatnot
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: whatnot
+  careers_url: https://www.whatnot.com/careers
+  typical_open: October
+
+- name: Faire
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: faire
+  careers_url: https://www.faire.com/careers
+  typical_open: October
+
+- name: Etsy
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: etsy
+  careers_url: https://careers.etsy.com
+  typical_open: September
+
+- name: Poshmark
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: poshmark
+  careers_url: https://poshmark.com/careers
+  typical_open: October
+
+- name: StockX
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: stockx
+  careers_url: https://stockx.com/about/careers
+  typical_open: October
+
+- name: Warby Parker
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: warby-parker
+  careers_url: https://www.warbyparker.com/careers
+  typical_open: October
+
+- name: Allbirds
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: allbirds
+  careers_url: https://www.allbirds.com/pages/careers
+  typical_open: October
+
+- name: Away
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: away
+  careers_url: https://www.awaytravel.com/careers
+  typical_open: October
+
+- name: Deel
+  tier: Broad
+  boards:
+    - platform: greenhouse
+      slug: deel
+  careers_url: https://www.deel.com/careers
+  typical_open: September

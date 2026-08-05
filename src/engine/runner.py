@@ -14,6 +14,8 @@ from .classify import classify_posting
 from .fetch import Fetcher
 from .models import Company, Posting, RunStats
 from .registry import load_companies
+from .store import Store
+from .tracker import apply_tracker_to_posting
 
 ADAPTERS: dict[str, Any] = {
     "greenhouse": fetch_greenhouse_postings,
@@ -38,11 +40,14 @@ async def fetch_company_board(fetcher: Fetcher, company: Company, board: dict[st
     return postings
 
 
-async def run_engine(companies_path: Path) -> tuple[list[Posting], RunStats]:
+async def run_engine(
+    companies_path: Path, tracker: dict | None = None
+) -> tuple[list[Posting], RunStats]:
     companies = load_companies(companies_path)
     fetcher = Fetcher()
     stats = RunStats()
     tasks: list[asyncio.Task[list[Posting]]] = []
+    store = Store(Path("data/engine.db"))
 
     for company in companies:
         for board in company.boards:
@@ -59,6 +64,17 @@ async def run_engine(companies_path: Path) -> tuple[list[Posting], RunStats]:
         stats.boards_succeeded += 1
         postings.extend(result)
 
+    for posting in postings:
+        if tracker:
+            apply_tracker_to_posting(posting, tracker)
+        store.upsert_posting(posting)
+
+    for company in companies:
+        for board in company.boards:
+            current_ids = [posting.id for posting in postings if posting.company == company.name]
+            store.sync_board(company.name, board["platform"], board["slug"], current_ids)
+
     stats.roles_found = len(postings)
     postings.sort(key=lambda posting: (posting.posted_date or posting.first_seen_at or posting.id), reverse=True)
+    store.close()
     return postings, stats
