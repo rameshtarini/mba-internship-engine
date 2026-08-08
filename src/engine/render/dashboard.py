@@ -11,14 +11,146 @@ if TYPE_CHECKING:
     from ..radar import RadarRow
 
 
-def extract_city(location: str | None) -> str:
+_CITY_ALIASES: dict[str, str] = {
+    # New York
+    "new york city": "New York",
+    "new york": "New York",
+    "nyc": "New York",
+    "ny": "New York",
+    "manhattan": "New York",
+    "brooklyn": "New York",
+    "queens": "New York",
+    "bronx": "New York",
+    # San Francisco / Bay Area
+    "san francisco": "San Francisco",
+    "san fransisco": "San Francisco",
+    "sf": "San Francisco",
+    "south san francisco": "San Francisco",
+    "san jose": "San Jose",
+    "menlo park": "Menlo Park",
+    "palo alto": "Palo Alto",
+    "palo altp": "Palo Alto",
+    "mountain view": "Mountain View",
+    "mountainview": "Mountain View",
+    "sunnyvale": "Sunnyvale",
+    "redwood city": "Redwood City",
+    # Los Angeles
+    "los angeles": "Los Angeles",
+    "la": "Los Angeles",
+    "santa monica": "Los Angeles",
+    "culver city": "Los Angeles",
+    "venice": "Los Angeles",
+    # Seattle
+    "seattle": "Seattle",
+    "bellevue": "Bellevue",
+    "kirkland": "Seattle",
+    "woodinville": "Seattle",
+    # Washington DC
+    "washington": "Washington DC",
+    "washington dc": "Washington DC",
+    "washington d.c.": "Washington DC",
+    "d.c.": "Washington DC",
+    "dc": "Washington DC",
+    "mclean": "Washington DC",
+    "tysons": "Washington DC",
+    "bethesda": "Washington DC",
+    "northern virginia": "Washington DC",
+    # Chicago
+    "chicago": "Chicago",
+    "schaumburg": "Chicago",
+    # Boston
+    "boston": "Boston",
+    "cambridge": "Boston",
+    "waltham": "Boston",
+    # Austin
+    "austin": "Austin",
+    # Atlanta
+    "atlanta": "Atlanta",
+    # Miami
+    "miami": "Miami",
+    # Denver
+    "denver": "Denver",
+    # Dallas
+    "dallas": "Dallas",
+    "frisco": "Dallas",
+    "plano": "Dallas",
+    # Nashville
+    "nashville": "Nashville",
+    # Other
+    "salt lake city": "Salt Lake City",
+    "minneapolis": "Minneapolis",
+    "philadelphia": "Philadelphia",
+    "phoenix": "Phoenix",
+    "san diego": "San Diego",
+    "portland": "Portland",
+    "raleigh": "Raleigh",
+    "charlotte": "Charlotte",
+    "pittsburgh": "Pittsburgh",
+    "detroit": "Detroit",
+    "indianapolis": "Indianapolis",
+    "kansas city": "Kansas City",
+    "st. louis": "St. Louis",
+    "saint louis": "St. Louis",
+}
+
+# Sorted longest-first so "new york city" matches before "new york"
+_CITY_ALIAS_KEYS = sorted(_CITY_ALIASES.keys(), key=len, reverse=True)
+
+# Strips state/country prefix like "US-", "NY - ", "WA - "
+_PREFIX_RE = re.compile(r"^(?:US|[A-Z]{2})\s*[-–]\s*", re.IGNORECASE)
+_JUNK = re.compile(r"^[\s()\-]+|[\s()\-]+$")
+
+
+def _normalize_city(raw: str) -> str:
+    key = re.sub(r"\s+", " ", raw.lower().strip())
+    if key in _CITY_ALIASES:
+        return _CITY_ALIASES[key]
+    # Substring search for embedded city names (e.g. "Hybrid - New York", "Betterment HQ - New York City")
+    for alias in _CITY_ALIAS_KEYS:
+        if alias in key:
+            return _CITY_ALIASES[alias]
+    return raw
+
+
+def extract_cities(location: str | None) -> list[str]:
+    """Return a deduplicated list of canonical city names from a location string."""
     if not location:
-        return ""
-    loc = location.strip()
-    if re.match(r"^remote\b", loc, re.IGNORECASE):
-        return "Remote"
-    first_part = loc.split(",")[0].strip()
-    return first_part
+        return []
+    loc = _JUNK.sub("", location)
+    if not loc:
+        return []
+
+    seen: set[str] = set()
+    cities: list[str] = []
+
+    for segment in loc.split(";"):
+        # Also split on "/" and " or " — some feeds use these as city separators
+        sub_parts = re.split(r"\s*/\s*|\s+or\s+", segment, flags=re.IGNORECASE)
+        for part in sub_parts:
+            part = _JUNK.sub("", part)
+            if not part:
+                continue
+            if re.search(r"\bremote\b", part, re.IGNORECASE):
+                if "Remote" not in seen:
+                    cities.append("Remote")
+                    seen.add("Remote")
+                continue
+            # Strip state/country prefix (e.g. "US-", "NY - ", "WA - ")
+            part = _PREFIX_RE.sub("", part).strip()
+            raw = _JUNK.sub("", part.split(",")[0])
+            raw = re.sub(r"\s+", " ", raw).strip()
+            if not raw:
+                continue
+            city = _normalize_city(raw)
+            if city and city not in seen:
+                cities.append(city)
+                seen.add(city)
+    return cities
+
+
+def extract_city(location: str | None) -> str:
+    cities = extract_cities(location)
+    return cities[0] if cities else ""
 
 
 _STATUS_COLORS = {
@@ -39,7 +171,8 @@ def _make_card(posting: Posting) -> str:
     evidence = escape(posting.mba_evidence or "—")
     preference = escape(posting.mba_preference or "mba_unknown")
     location_str = escape(posting.location or "—")
-    city = escape(extract_city(posting.location))
+    cities_list = extract_cities(posting.location)
+    cities_attr = escape("|".join(cities_list))
     tier = escape(posting.tier or "")
     my_status = posting.my_status or "none"
     badge = ""
@@ -55,7 +188,7 @@ def _make_card(posting: Posting) -> str:
         f'data-company="{escape(posting.company or "Unknown")}" '
         f'data-track="{track}" '
         f'data-mba="{preference}" '
-        f'data-city="{city}">\n'
+        f'data-cities="{cities_attr}">\n'
         f"  <h3>{company} &mdash; {title}{badge}</h3>\n"
         f"  <p><strong>Track:</strong> {track} &nbsp; <strong>MBA:</strong> {preference}"
         + (f" &nbsp; <strong>Tier:</strong> {tier}" if tier else "")
@@ -112,7 +245,7 @@ def write_dashboard(
 
     all_postings = postings + unstated_postings
 
-    cities = sorted({c for p in all_postings if (c := extract_city(p.location))})
+    cities = sorted({c for p in all_postings for c in extract_cities(p.location) if c})
     city_options = "\n".join(
         f'        <option value="{escape(c)}">{escape(c)}</option>' for c in cities if c
     )
@@ -213,7 +346,7 @@ def write_dashboard(
           (!q || text.includes(q)) &&
           (track === 'all' || card.dataset.track === track) &&
           (mba === 'all' || card.dataset.mba === mba) &&
-          (city === 'all' || card.dataset.city === city);
+          (city === 'all' || (card.dataset.cities || '').split('|').indexOf(city) !== -1);
         card.style.display = ok ? '' : 'none';
       }});
     }}
