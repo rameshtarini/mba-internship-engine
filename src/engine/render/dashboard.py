@@ -183,6 +183,13 @@ def _make_card(posting: Posting) -> str:
             f'background:{color};color:#fff;font-size:0.75rem;font-weight:600;'
             f'vertical-align:middle">{escape(my_status)}</span>'
         )
+    tier_loc = ""
+    if tier and location_str != "—":
+        tier_loc = f"  <p><strong>{tier}</strong> &nbsp;&middot;&nbsp; {location_str}</p>\n"
+    elif tier:
+        tier_loc = f"  <p><strong>{tier}</strong></p>\n"
+    elif location_str != "—":
+        tier_loc = f"  <p>{location_str}</p>\n"
     return (
         f'<article class="card" '
         f'data-company="{escape(posting.company or "Unknown")}" '
@@ -190,13 +197,9 @@ def _make_card(posting: Posting) -> str:
         f'data-mba="{preference}" '
         f'data-cities="{cities_attr}">\n'
         f"  <h3>{company} &mdash; {title}{badge}</h3>\n"
-        f"  <p><strong>Track:</strong> {track} &nbsp; <strong>MBA:</strong> {preference}"
-        + (f" &nbsp; <strong>Tier:</strong> {tier}" if tier else "")
-        + f"</p>\n"
-        f"  <p><strong>Location:</strong> {location_str}</p>\n"
-        f"  <p><strong>Evidence:</strong> <em>{evidence}</em></p>\n"
-        f"  <p><strong>Posted:</strong> {posted}</p>\n"
-        f'  <p><a href="{escape(posting.apply_url)}" target="_blank" rel="noreferrer">Apply &rarr;</a></p>\n'
+        f"{tier_loc}"
+        f"  <p><strong>Posted:</strong> {posted} &nbsp;&middot;&nbsp; "
+        f'<a href="{escape(posting.apply_url)}" target="_blank" rel="noreferrer">Apply &rarr;</a></p>\n'
         f"</article>\n"
     )
 
@@ -263,7 +266,10 @@ def write_dashboard(
   <section>
     <h2>Cycle Not Stated &mdash; {unstated_count} postings</h2>
     <p class="note">These do not explicitly mention Summer 2027 but are MBA-level PM roles at tracked companies. Per the spec, postings from Aug 2026 onward are surfaced even without a stated cycle.</p>
-    <div>{unstated_cards}</div>
+    <details>
+      <summary style="cursor:pointer;color:#6b7280;font-size:0.875rem;margin-bottom:0.75rem">Show {unstated_count} postings</summary>
+      <div>{unstated_cards}</div>
+    </details>
   </section>"""
 
     radar_section = ""
