@@ -25,6 +25,10 @@ def classify_cycle(posting: Posting) -> str:
         text,
     ):
         return "summer_2027"
+    # Title-level "2027" combined with an internship keyword is sufficient evidence
+    title = _normalize_text(posting.role_title or "").lower()
+    if re.search(r"\b2027\b", title) and re.search(r"\bintern", title):
+        return "summer_2027"
     return "unstated"
 
 
