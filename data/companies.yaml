@@ -126,22 +126,22 @@
   typical_open: August
 
 - name: Amazon
-  tier: Safety
+  tier: Tier 1
   boards:
-    - platform: greenhouse
+    - platform: amazondotjobs
       slug: amazon
   careers_url: https://www.amazon.jobs
-  notes: "Amazon primarily uses amazon.jobs (custom ATS). Greenhouse slug likely won't resolve — verify."
+  notes: "Amazon Leadership Accelerator (ALA) is the MBA PM internship program."
   typical_open: August
 
 # ── Broad MBA PM Recruiters ───────────────────────────────────────────────────
 - name: Apple
-  tier: Broad
+  tier: Tier 2
   boards:
-    - platform: greenhouse
+    - platform: applejobs
       slug: apple
   careers_url: https://jobs.apple.com
-  notes: "Apple uses jobs.apple.com (custom ATS). Greenhouse slug unverified — may need manual tracking."
+  notes: "MBA internships listed under team=STDNT (Students). Custom ATS — adapter uses their internal search API."
   typical_open: September
 
 - name: Adobe

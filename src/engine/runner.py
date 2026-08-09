@@ -4,6 +4,8 @@ import asyncio
 from pathlib import Path
 from typing import Any
 
+from .adapters.amazondotjobs import fetch_amazon_postings
+from .adapters.applejobs import fetch_apple_postings
 from .adapters.ashby import fetch_ashby_postings
 from .adapters.greenhouse import fetch_greenhouse_postings
 from .adapters.lever import fetch_lever_postings
@@ -24,6 +26,8 @@ ADAPTERS: dict[str, Any] = {
     "workday": fetch_workday_postings,
     "smartrecruiters": fetch_smartrecruiters_postings,
     "workable": fetch_workable_postings,
+    "amazondotjobs": fetch_amazon_postings,
+    "applejobs": fetch_apple_postings,
 }
 
 
