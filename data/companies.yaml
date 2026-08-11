@@ -177,8 +177,9 @@
     - platform: greenhouse
       slug: linkedin
   careers_url: https://careers.linkedin.com
-  notes: "LinkedIn (Microsoft subsidiary) may use a custom ATS. Slug unverified."
+  notes: "LinkedIn ToS prohibits scraping. Disabled — check manually."
   typical_open: September
+  disabled: true
 
 - name: Uber
   tier: Broad
