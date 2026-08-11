@@ -7,6 +7,7 @@ from typing import Any
 from .adapters.amazondotjobs import fetch_amazon_postings
 from .adapters.applejobs import fetch_apple_postings
 from .adapters.ashby import fetch_ashby_postings
+from .adapters.googlecareers import fetch_google_postings
 from .adapters.greenhouse import fetch_greenhouse_postings
 from .adapters.lever import fetch_lever_postings
 from .adapters.smartrecruiters import fetch_smartrecruiters_postings
@@ -28,6 +29,7 @@ ADAPTERS: dict[str, Any] = {
     "workable": fetch_workable_postings,
     "amazondotjobs": fetch_amazon_postings,
     "applejobs": fetch_apple_postings,
+    "googlecareers": fetch_google_postings,
 }
 
 
@@ -54,6 +56,8 @@ async def run_engine(
     store = Store(Path("data/engine.db"))
 
     for company in companies:
+        if company.disabled:
+            continue
         for board in company.boards:
             stats.boards_attempted += 1
             tasks.append(asyncio.create_task(fetch_company_board(fetcher, company, board)))
@@ -74,11 +78,19 @@ async def run_engine(
         store.upsert_posting(posting)
 
     for company in companies:
+        if company.disabled:
+            continue
         for board in company.boards:
             current_ids = [posting.id for posting in postings if posting.company == company.name]
             store.sync_board(company.name, board["platform"], board["slug"], current_ids)
 
+    def _sort_key(p: Posting) -> tuple:
+        dt = p.posted_date or p.first_seen_at
+        if dt is not None and getattr(dt, "tzinfo", None) is not None:
+            dt = dt.replace(tzinfo=None)
+        return (dt or "", p.id)
+
     stats.roles_found = len(postings)
-    postings.sort(key=lambda posting: (posting.posted_date or posting.first_seen_at or posting.id), reverse=True)
+    postings.sort(key=_sort_key, reverse=True)
     store.close()
     return postings, stats

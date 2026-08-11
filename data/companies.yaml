@@ -104,16 +104,17 @@
     - platform: greenhouse
       slug: microsoft
   careers_url: https://careers.microsoft.com
-  notes: "Microsoft primarily uses careers.microsoft.com (custom ATS). Greenhouse slug may not resolve — verify and disable if 403."
+  notes: "careers.microsoft.com uses EightFold AI SPA — client-side only, no accessible API found. Greenhouse slug will return 0 results. Monitor manually."
   typical_open: August
+  disabled: true
 
 - name: Google
   tier: Safety
   boards:
-    - platform: greenhouse
+    - platform: googlecareers
       slug: google
   careers_url: https://careers.google.com
-  notes: "Google primarily uses careers.google.com. Greenhouse presence limited — verify slug."
+  notes: "Custom adapter scrapes AF_initDataCallback data from careers.google.com HTML."
   typical_open: August
 
 - name: Meta
@@ -122,8 +123,9 @@
     - platform: greenhouse
       slug: meta
   careers_url: https://www.metacareers.com
-  notes: "Meta uses a mix of Greenhouse and custom ATS. Verify slug; RPM is the MBA-level PM program."
+  notes: "metacareers.com job search is client-side JS only — GraphQL requires browser session. No accessible API found. Monitor manually."
   typical_open: August
+  disabled: true
 
 - name: Amazon
   tier: Tier 1

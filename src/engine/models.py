@@ -12,6 +12,7 @@ class Company:
     careers_url: str
     notes: str | None = None
     typical_open: str | None = None
+    disabled: bool = False
 
 
 @dataclass
