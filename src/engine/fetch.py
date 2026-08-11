@@ -7,10 +7,7 @@ import httpx
 
 
 _HEADERS = {
-    "User-Agent": (
-        "MBAInternTracker/1.0 "
-        "(personal research; +https://github.com/rameshtarini/mba-internship-engine)"
-    ),
+    "User-Agent": "MBAInternTracker/1.0 (personal research tool)",
     "Accept": "application/json, text/plain, */*",
 }
 
